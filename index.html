@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+    <div class="container">
+        <div id="message" class="row d-none">
+            <span></span>
+            <a href="javascript:;" onclick="closeMessage()"><i class="fa fa-times"></i></a>
+        </div>
+        <div class="row">
+            <h3 id="form-title">Add New Product</h3>
+            <div class="add-product">
+                <div>
+                    <label for="name">Product Name</label> <input type="text" id="name" autocomplete="on">
+                </div>
+                <div>
+                    <label for="price">Price</label> <input type="number" value="0" id="price" autocomplete="on">
+                </div>
+                <div>
+                    <label for="quantity">Quantity</label> <input type="number" value="0" id="quantity" autocomplete="on">
+                </div>
+                <div>
+                    <a href="javascript:;" class="btn btn-success" id="btnAdd" onclick="addProduct()">Add</a>
+                    <a href="javascript:;" class="btn btn-warning d-none" id="btnReset" onclick="reset()">Cancel</a>
+                    <input type="hidden" id="productId" value="-1">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <select id="pagesize" onchange="changePagesize()">
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                <input type="search" id="keyword" oninput="search(1)">
+            </div>
+            <h3>Display All Product</h3>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Product name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th id="productCount"></th>
+                    </tr>
+                </thead>
+                <tbody id="tbProduct">
+                </tbody>
+            </table>
+            <div style="margin-top:5px;">
+                <ul id="pagination">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/dashboard.js"></script>
+</body>
+
+</html>
