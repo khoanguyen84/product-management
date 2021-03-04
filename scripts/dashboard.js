@@ -41,7 +41,7 @@ function showProduct(pagenumber, list) {
     tbProduct.innerHTML = "";
     result.forEach(function(v, i) {
             tbProduct.innerHTML += `
-                                <tr id="tr_${i}">
+                                <tr id="tr_${v.id}">
                                     <td>
                                         ${++i}
                                     </td>
